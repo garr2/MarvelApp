@@ -11,7 +11,7 @@ class SplashActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        startActivity(Intent(this, ManActivity::class.java))
+        startActivity(Intent(this, ManActivity::class.java))// Здесь логика выбора активити
 
     }
 
