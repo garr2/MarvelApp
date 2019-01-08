@@ -2,11 +2,11 @@ package com.example.user.test.presentation.base
 
 import com.arellomobile.mvp.InjectViewState
 import com.arellomobile.mvp.MvpPresenter
+import com.arellomobile.mvp.MvpView
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.disposables.Disposable
 
-@InjectViewState
-abstract class BasePresenter<V: BaseMVPView, R: BaseRouter<*>>(var router: R?): MvpPresenter<V>() {
+open class BasePresenter<V: MvpView>: MvpPresenter<V>() {
 
     private val compositeDisposable: CompositeDisposable by lazy {
         CompositeDisposable()
