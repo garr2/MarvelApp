@@ -1,18 +1,21 @@
 package com.example.user.test.presentation.base
 
 import android.os.Bundle
-import android.os.PersistableBundle
-import android.support.v7.app.AppCompatActivity
-import android.util.Log
 import com.arellomobile.mvp.MvpAppCompatActivity
 import com.arellomobile.mvp.MvpPresenter
-import com.arellomobile.mvp.presenter.InjectPresenter
+import com.example.user.test.presentation.app.MarvelApplication
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.disposables.Disposable
+import ru.terrakok.cicerone.Navigator
 
-abstract class BaseActivity<P: MvpPresenter<*>, R: BaseRouter<*>>: MvpAppCompatActivity() {
+abstract class BaseActivity<P : MvpPresenter<*>, R : FlowRouter> : MvpAppCompatActivity() {
 
     protected val router: R
+
+    val navigationHolder = MarvelApplication.instance.getNavigationHolder()
+
+    protected abstract val navigator: Navigator
+    protected abstract val layoutId: Int
 
     init {
         router = provideRouter()
@@ -22,14 +25,12 @@ abstract class BaseActivity<P: MvpPresenter<*>, R: BaseRouter<*>>: MvpAppCompatA
         CompositeDisposable()
     }
 
-    abstract fun provideLayoutId(): Int
-
     abstract fun provideRouter(): R
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        Log.d("myLog", "CharactersActivity.onCreate")
-        setContentView(provideLayoutId())
+
+        setContentView(layoutId)
     }
 
     override fun onDestroy() {
@@ -37,7 +38,18 @@ abstract class BaseActivity<P: MvpPresenter<*>, R: BaseRouter<*>>: MvpAppCompatA
         compositeDisposable.clear()
     }
 
-    fun addToDisposable(disposable: Disposable){
+    override fun onResume() {
+        super.onResume()
+
+        navigationHolder.setNavigator(navigator)
+    }
+
+    override fun onPause() {
+        navigationHolder.removeNavigator()
+        super.onPause()
+    }
+
+    fun addToDisposable(disposable: Disposable) {
         compositeDisposable.add(disposable)
     }
 }
