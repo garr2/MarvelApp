@@ -9,7 +9,7 @@ import com.example.user.test.presentation.flow.StartFlow
 import ru.terrakok.cicerone.android.SupportFragmentNavigator
 import ru.terrakok.cicerone.commands.Command
 
-abstract class BaseNavigator(val activity: FragmentActivity, containerId: Int) :
+abstract class FlowNavigator(val activity: FragmentActivity, containerId: Int) :
     SupportFragmentNavigator(activity.supportFragmentManager, containerId) {
 
     override fun applyCommand(command: Command?) {

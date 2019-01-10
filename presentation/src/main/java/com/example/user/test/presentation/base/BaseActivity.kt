@@ -46,6 +46,7 @@ abstract class BaseActivity<P : MvpPresenter<*>, R : FlowRouter> : MvpAppCompatA
 
     override fun onPause() {
         navigationHolder.removeNavigator()
+
         super.onPause()
     }
 

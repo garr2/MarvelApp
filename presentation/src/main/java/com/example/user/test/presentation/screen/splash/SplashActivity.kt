@@ -8,10 +8,11 @@ import com.arellomobile.mvp.presenter.ProvidePresenter
 import com.example.user.test.R
 import com.example.user.test.presentation.app.MarvelApplication
 import com.example.user.test.presentation.base.BaseActivity
-import com.example.user.test.presentation.base.BaseNavigator
+import com.example.user.test.presentation.base.FlowNavigator
 import com.example.user.test.presentation.base.FlowRouter
 import com.example.user.test.presentation.screen.Screens
 import ru.terrakok.cicerone.Navigator
+import javax.inject.Inject
 
 class SplashActivity : BaseActivity<SplashPresenter, FlowRouter>(), SplashView {
 
@@ -21,8 +22,12 @@ class SplashActivity : BaseActivity<SplashPresenter, FlowRouter>(), SplashView {
         const val SPLASH_ACTIVITY_REQUEST_CODE = 1
     }
 
+    init {
+        MarvelApplication.appComponent.inject(this)
+    }
+
     override val layoutId: Int = R.layout.activity_splash
-    override val navigator: Navigator = object : BaseNavigator(this, R.id.flStub) {
+    override val navigator: Navigator = object : FlowNavigator(this, R.id.flStub) {
         override fun createFragment(screenKey: String?, data: Any?): Fragment? {
             return null
         }
@@ -35,7 +40,7 @@ class SplashActivity : BaseActivity<SplashPresenter, FlowRouter>(), SplashView {
             return SPLASH_ACTIVITY_REQUEST_CODE
         }
     }
-
+    @Inject
     @InjectPresenter
     lateinit var presenter: SplashPresenter
 
