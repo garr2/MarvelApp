@@ -10,6 +10,7 @@ object Screens {
     const val SPLASH_FLOW = "splash_flow"
 
     const val CHARACTERS_FLOW = "characters_flow"
+    const val PAGE_SCREEN = "page_screen"
     const val CHARACTERS_SCREEN = "characters_screen"
     const val FAVORITE_SCREEN = "favorite_screen"
     const val PROFILE_SCREEN = "profile_screen"

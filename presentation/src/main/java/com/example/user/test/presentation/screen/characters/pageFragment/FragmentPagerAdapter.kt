@@ -1,4 +1,4 @@
-package com.example.user.test.presentation.screen.characters
+package com.example.user.test.presentation.screen.characters.pageFragment
 
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
@@ -7,7 +7,7 @@ import com.example.user.test.presentation.screen.characters.characters.Character
 import com.example.user.test.presentation.screen.characters.favorite.FavoriteFragment
 import com.example.user.test.presentation.screen.characters.profile.ProfileFragment
 
-class CharactersFragmentPagerAdapter(manager: FragmentManager) : FragmentPagerAdapter(manager) {
+class FragmentPagerAdapter(manager: FragmentManager) : FragmentPagerAdapter(manager) {
 
     companion object {
         private const val PAGE_COUNT = 3

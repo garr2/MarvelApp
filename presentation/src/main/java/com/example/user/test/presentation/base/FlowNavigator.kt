@@ -3,6 +3,7 @@ package com.example.user.test.presentation.base
 import android.app.Activity
 import android.content.Intent
 import android.support.v4.app.FragmentActivity
+import android.util.Log
 import android.widget.Toast
 import com.example.user.test.presentation.flow.FinishFlow
 import com.example.user.test.presentation.flow.StartFlow
@@ -17,18 +18,6 @@ abstract class FlowNavigator(val activity: FragmentActivity, containerId: Int) :
             is StartFlow -> startFlow(command.screenKey, command.transitionData)
             is FinishFlow -> finishFlow(command.transitionData)
             else -> super.applyCommand(command)
-        }
-    }
-
-    override fun applyCommands(commands: Array<out Command>?) {
-        if (commands != null) {
-            for (command in commands) {
-                when (command) {
-                    is StartFlow -> startFlow(command.screenKey, command.transitionData)
-                    is FinishFlow -> finishFlow(command.transitionData)
-
-                }
-            }
         }
     }
 

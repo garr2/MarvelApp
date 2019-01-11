@@ -21,21 +21,12 @@ abstract class BaseActivity<P : MvpPresenter<*>, R : FlowRouter> : MvpAppCompatA
         router = provideRouter()
     }
 
-    private val compositeDisposable: CompositeDisposable by lazy {
-        CompositeDisposable()
-    }
-
     abstract fun provideRouter(): R
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
         setContentView(layoutId)
-    }
-
-    override fun onDestroy() {
-        super.onDestroy()
-        compositeDisposable.clear()
     }
 
     override fun onResume() {
@@ -48,9 +39,5 @@ abstract class BaseActivity<P : MvpPresenter<*>, R : FlowRouter> : MvpAppCompatA
         navigationHolder.removeNavigator()
 
         super.onPause()
-    }
-
-    fun addToDisposable(disposable: Disposable) {
-        compositeDisposable.add(disposable)
     }
 }

@@ -5,35 +5,29 @@ import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import com.arellomobile.mvp.MvpAppCompatFragment
+import com.example.user.test.presentation.app.MarvelApplication
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.disposables.Disposable
+import ru.terrakok.cicerone.Navigator
 
-abstract class BaseFragment<R : FlowRouter> : Fragment() {
+abstract class BaseFragment<R : FlowRouter> : MvpAppCompatFragment() {
 
-    private lateinit var router: R
+    protected lateinit var router: R
 
-    private val compositeDisposable: CompositeDisposable by lazy {
-        CompositeDisposable()
+    protected abstract val layoutId: Int
+
+    init {
+        router = provideRouter()
     }
-
-    abstract fun layoutId(): Int
 
     abstract fun provideRouter(): R
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? =
-        inflater.inflate(layoutId(), container, false)
+        inflater.inflate(layoutId, container, false)
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        router = provideRouter()
-    }
 
-    override fun onDestroy() {
-        super.onDestroy()
-        compositeDisposable.clear()
-    }
-
-    fun addToDisposable(disposable: Disposable) {
-        compositeDisposable.add(disposable)
     }
 }

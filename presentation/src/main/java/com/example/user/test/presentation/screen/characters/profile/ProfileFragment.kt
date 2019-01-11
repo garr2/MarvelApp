@@ -6,8 +6,13 @@ import com.example.user.test.presentation.base.FlowRouter
 
 class ProfileFragment : BaseFragment<FlowRouter>() {
 
+    companion object {
+        fun getInstance(): ProfileFragment{
+            return ProfileFragment()
+        }
+    }
 
-    override fun layoutId(): Int = R.layout.profile_fragment
+    override val layoutId: Int = R.layout.profile_fragment
 
     override fun provideRouter(): FlowRouter {
         return FlowRouter()

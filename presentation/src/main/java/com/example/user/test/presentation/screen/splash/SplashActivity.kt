@@ -40,6 +40,7 @@ class SplashActivity : BaseActivity<SplashPresenter, FlowRouter>(), SplashView {
             return SPLASH_ACTIVITY_REQUEST_CODE
         }
     }
+
     @Inject
     @InjectPresenter
     lateinit var presenter: SplashPresenter
