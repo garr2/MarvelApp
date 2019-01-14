@@ -4,11 +4,11 @@
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        tools:context=".presentation.screen.characters.CharactersActivity">
+        tools:context=".presentation.screen.main.MainActivity">
 
     <FrameLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/flMainContainer"/>
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/flMainContainer"/>
 
 </android.support.constraint.ConstraintLayout>

@@ -1,4 +1,4 @@
-package com.example.user.test.presentation.screen.characters.profile
+package com.example.user.test.presentation.screen.main.pageFragment.profile
 
 import com.arellomobile.mvp.InjectViewState
 import com.arellomobile.mvp.MvpView

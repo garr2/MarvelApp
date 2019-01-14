@@ -1,9 +1,8 @@
-package com.example.user.test.presentation.screen.characters.favorite
+package com.example.user.test.presentation.screen.main.pageFragment.favorite
 
 import com.example.user.test.R
 import com.example.user.test.presentation.base.BaseFragment
 import com.example.user.test.presentation.base.FlowRouter
-import com.example.user.test.presentation.screen.characters.characters.CharacterFragment
 
 class FavoriteFragment : BaseFragment<FlowRouter>() {
 

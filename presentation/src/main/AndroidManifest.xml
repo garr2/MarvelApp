@@ -22,8 +22,7 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".presentation.screen.man.CharactersActivity">
-        </activity>
+        <activity android:name=".presentation.screen.main.MainActivity"/>
     </application>
 
 </manifest>

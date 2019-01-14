@@ -4,8 +4,6 @@ import android.os.Bundle
 import com.arellomobile.mvp.MvpAppCompatActivity
 import com.arellomobile.mvp.MvpPresenter
 import com.example.user.test.presentation.app.MarvelApplication
-import io.reactivex.disposables.CompositeDisposable
-import io.reactivex.disposables.Disposable
 import ru.terrakok.cicerone.Navigator
 
 abstract class BaseActivity<P : MvpPresenter<*>, R : FlowRouter> : MvpAppCompatActivity() {

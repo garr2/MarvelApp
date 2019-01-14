@@ -1,11 +1,11 @@
-package com.example.user.test.presentation.screen.characters.pageFragment
+package com.example.user.test.presentation.screen.main.pageFragment
 
 import android.support.v4.app.Fragment
 import android.support.v4.app.FragmentManager
 import android.support.v4.app.FragmentPagerAdapter
-import com.example.user.test.presentation.screen.characters.characters.CharacterFragment
-import com.example.user.test.presentation.screen.characters.favorite.FavoriteFragment
-import com.example.user.test.presentation.screen.characters.profile.ProfileFragment
+import com.example.user.test.presentation.screen.main.pageFragment.characters.CharacterFragment
+import com.example.user.test.presentation.screen.main.pageFragment.favorite.FavoriteFragment
+import com.example.user.test.presentation.screen.main.pageFragment.profile.ProfileFragment
 
 class FragmentPagerAdapter(manager: FragmentManager) : FragmentPagerAdapter(manager) {
 

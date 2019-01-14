@@ -2,7 +2,7 @@ package com.example.user.test.presentation.screen
 
 import android.content.Context
 import android.content.Intent
-import com.example.user.test.presentation.screen.characters.CharactersActivity
+import com.example.user.test.presentation.screen.main.MainActivity
 import com.example.user.test.presentation.screen.splash.SplashActivity
 
 object Screens {
@@ -18,7 +18,7 @@ object Screens {
     fun getFlowIntent(context: Context, flowKey: String, data: Any?): Intent? {
         return when (flowKey) {
             Screens.SPLASH_FLOW -> SplashActivity.getInstance(context)
-            Screens.CHARACTERS_FLOW -> CharactersActivity.getInstance(context)
+            Screens.CHARACTERS_FLOW -> MainActivity.getInstance(context)
             else -> null
 
         }

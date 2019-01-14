@@ -1,15 +1,10 @@
 package com.example.user.test.presentation.base
 
 import android.os.Bundle
-import android.support.v4.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import com.arellomobile.mvp.MvpAppCompatFragment
-import com.example.user.test.presentation.app.MarvelApplication
-import io.reactivex.disposables.CompositeDisposable
-import io.reactivex.disposables.Disposable
-import ru.terrakok.cicerone.Navigator
 
 abstract class BaseFragment<R : FlowRouter> : MvpAppCompatFragment() {
 

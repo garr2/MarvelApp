@@ -1,4 +1,4 @@
-package com.example.user.test.presentation.screen.characters
+package com.example.user.test.presentation.screen.main
 
 import android.content.Context
 import android.content.Intent
@@ -12,18 +12,18 @@ import com.example.user.test.presentation.base.BaseActivity
 import com.example.user.test.presentation.base.FlowNavigator
 import com.example.user.test.presentation.base.FlowRouter
 import com.example.user.test.presentation.screen.Screens
-import com.example.user.test.presentation.screen.characters.characters.CharacterFragment
-import com.example.user.test.presentation.screen.characters.favorite.FavoriteFragment
-import com.example.user.test.presentation.screen.characters.pageFragment.PageFragment
-import com.example.user.test.presentation.screen.characters.profile.ProfileFragment
+import com.example.user.test.presentation.screen.main.pageFragment.PageFragment
+import com.example.user.test.presentation.screen.main.pageFragment.characters.CharacterFragment
+import com.example.user.test.presentation.screen.main.pageFragment.favorite.FavoriteFragment
+import com.example.user.test.presentation.screen.main.pageFragment.profile.ProfileFragment
 import ru.terrakok.cicerone.Navigator
 import ru.terrakok.cicerone.commands.Replace
 import javax.inject.Inject
 
-class CharactersActivity : BaseActivity<CharactersPresenter, FlowRouter>(), CharactersView {
+class MainActivity : BaseActivity<MainPresenter, FlowRouter>(), MainView {
 
     companion object {
-        fun getInstance(mCtx: Context): Intent = Intent(mCtx, CharactersActivity::class.java)
+        fun getInstance(mCtx: Context): Intent = Intent(mCtx, MainActivity::class.java)
     }
 
     init {
@@ -46,10 +46,10 @@ class CharactersActivity : BaseActivity<CharactersPresenter, FlowRouter>(), Char
 
     @Inject
     @InjectPresenter
-    lateinit var presenter: CharactersPresenter
+    lateinit var presenter: MainPresenter
 
     @ProvidePresenter
-    fun provideCharactersPresenter(): CharactersPresenter = CharactersPresenter(router)
+    fun provideCharactersPresenter(): MainPresenter = MainPresenter(router)
 
     override fun provideRouter(): FlowRouter {
         return MarvelApplication.instance.getRouter()
@@ -58,7 +58,11 @@ class CharactersActivity : BaseActivity<CharactersPresenter, FlowRouter>(), Char
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        if (savedInstanceState == null) navigator.applyCommands(arrayOf(Replace
-        (Screens.PAGE_SCREEN,null)))
+        if (savedInstanceState == null) navigator.applyCommands(
+            arrayOf(
+                Replace
+                    (Screens.PAGE_SCREEN, null)
+            )
+        )
     }
 }
