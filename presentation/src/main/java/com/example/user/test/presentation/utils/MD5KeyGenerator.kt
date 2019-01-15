@@ -7,7 +7,7 @@ class MD5KeyGenerator {
     @Throws(NoSuchAlgorithmException::class)
     fun generate(baseString: String): String {
         val digest = java.security.MessageDigest
-            .getInstance("MD5")
+                .getInstance("MD5")
         digest.update(baseString.toByteArray())
         val messageDigest = digest.digest()
         val hexString = StringBuilder()

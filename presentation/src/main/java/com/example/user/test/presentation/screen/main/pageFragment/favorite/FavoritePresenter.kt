@@ -2,10 +2,9 @@ package com.example.user.test.presentation.screen.main.pageFragment.favorite
 
 import com.arellomobile.mvp.InjectViewState
 import com.example.user.test.presentation.base.BasePresenter
-import com.example.user.test.presentation.base.FlowRouter
+import ru.terrakok.cicerone.Router
+import javax.inject.Inject
 
 @InjectViewState
-class FavoritePresenter(val router: FlowRouter) : BasePresenter<FavoriteView>(),
-    FavoriteView {
-
-}
+class FavoritePresenter @Inject constructor(val router: Router)
+    : BasePresenter<FavoriteView>(), FavoriteView

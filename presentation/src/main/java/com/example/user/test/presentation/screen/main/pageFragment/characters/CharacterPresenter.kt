@@ -2,8 +2,8 @@ package com.example.user.test.presentation.screen.main.pageFragment.characters
 
 import com.arellomobile.mvp.InjectViewState
 import com.example.user.test.presentation.base.BasePresenter
-import com.example.user.test.presentation.base.FlowRouter
+import ru.terrakok.cicerone.Router
+import javax.inject.Inject
 
 @InjectViewState
-class CharacterPresenter(val router: FlowRouter) : BasePresenter<CharacterView>() {
-}
+class CharacterPresenter @Inject constructor(val router: Router) : BasePresenter<CharacterView>()
