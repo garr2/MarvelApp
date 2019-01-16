@@ -1,4 +1,4 @@
-package com.example.user.test.presentation.screen.main.pageFragment.characters
+package com.example.user.test.presentation.screen.main.mainFragment.characters
 
 import com.example.user.test.R
 import com.example.user.test.presentation.base.BaseFragment

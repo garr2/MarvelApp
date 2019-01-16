@@ -1,4 +1,4 @@
-package com.example.user.test.presentation.screen.main.pageFragment.profile
+package com.example.user.test.presentation.screen.main.mainFragment.profile
 
 import com.example.user.test.R
 import com.example.user.test.presentation.base.BaseFragment

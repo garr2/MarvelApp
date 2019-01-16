@@ -1,4 +1,4 @@
-package com.example.user.test.presentation.screen.main.pageFragment
+package com.example.user.test.presentation.screen.main.mainFragment
 
 import android.os.Bundle
 import android.support.design.widget.BottomNavigationView
@@ -9,6 +9,9 @@ import com.example.user.test.R
 import com.example.user.test.presentation.app.MarvelApplication
 import com.example.user.test.presentation.base.BaseFragment
 import com.example.user.test.presentation.holder.LocalCiceroneHolder
+import com.example.user.test.presentation.screen.main.mainFragment.characters.CharacterFragment
+import com.example.user.test.presentation.screen.main.mainFragment.favorite.FavoriteFragment
+import com.example.user.test.presentation.screen.main.mainFragment.profile.ProfileFragment
 import kotlinx.android.synthetic.main.page_fragment.*
 import ru.terrakok.cicerone.Cicerone
 import ru.terrakok.cicerone.Navigator
@@ -25,6 +28,10 @@ class MainFragment : BaseFragment(), MainFragmentView {
     override val layoutId: Int = R.layout.page_fragment
 
     private var navigator: Navigator? = null
+
+    private val charactersFragment = CharacterFragment()
+    private val favoriteFragment = FavoriteFragment()
+    private val profileFragment = ProfileFragment()
 
     @Inject
     lateinit var ciceroneHolder: LocalCiceroneHolder
@@ -52,9 +59,9 @@ class MainFragment : BaseFragment(), MainFragmentView {
     private val tabItemListener = BottomNavigationView.OnNavigationItemSelectedListener {
         it.isChecked = true
         when (it.itemId) {
-            R.id.action_characters -> presenter.setCharacterFragment()
-            R.id.action_favorites -> presenter.setFavoritesFragment()
-            R.id.action_profile -> presenter.setProfileFragment()
+            R.id.action_characters -> replaceFragment(charactersFragment)
+            R.id.action_favorites -> replaceFragment(favoriteFragment)
+            R.id.action_profile -> replaceFragment(profileFragment)
         }
         return@OnNavigationItemSelectedListener false
     }
@@ -80,5 +87,23 @@ class MainFragment : BaseFragment(), MainFragmentView {
 
     private fun getCicerone(): Cicerone<Router> {
         return ciceroneHolder.getCicerone(CONTAINER_NAME)
+    }
+
+    fun replaceFragment(fragment: BaseFragment, addToBackStack: Boolean = false) {
+
+        var fragmentTransition = childFragmentManager.beginTransaction()
+
+        fragmentTransition.setCustomAnimations(R.animator.slide_in_left, R.animator.slide_in_right)
+
+        fragmentTransition.replace(
+                R.id.flMainFragmentContainer, fragment,
+                fragment::class.java.canonicalName
+        )
+
+        if (addToBackStack) {
+            fragmentTransition.addToBackStack(null)
+        }
+
+        fragmentTransition.commit()
     }
 }

@@ -11,5 +11,5 @@ abstract class BaseFragment : MvpAppCompatFragment() {
     protected abstract val layoutId: Int
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? =
-        inflater.inflate(layoutId, container, false)
+            inflater.inflate(layoutId, container, false)
 }

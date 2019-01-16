@@ -28,8 +28,8 @@ class MarvelApplication : Application() {
 
         cicerone = Cicerone.create()
         appComponent = DaggerAppComponent.builder()
-            .appModule(AppModule())
-            .build()
+                .appModule(AppModule())
+                .build()
     }
 
     fun getNavigationHolder(): NavigatorHolder = cicerone.navigatorHolder
