@@ -14,6 +14,7 @@ class MarvelApplication : Application() {
 
     companion object {
         lateinit var instance: MarvelApplication
+            private set
         lateinit var appComponent: AppComponent
             private set
     }
@@ -27,8 +28,8 @@ class MarvelApplication : Application() {
 
         cicerone = Cicerone.create()
         appComponent = DaggerAppComponent.builder()
-                .appModule(AppModule())
-                .build()
+            .appModule(AppModule())
+            .build()
     }
 
     fun getNavigationHolder(): NavigatorHolder = cicerone.navigatorHolder

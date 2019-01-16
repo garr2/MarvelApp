@@ -19,10 +19,6 @@ class MainActivity : BaseActivity(), MainView {
         fun createIntent(context: Context): Intent = Intent(context, MainActivity::class.java)
     }
 
-    init {
-        MarvelApplication.appComponent.inject(this)
-    }
-
     override val navigator: Navigator = SupportAppNavigator(this, R.id.flMainContainer)
 
     override val layoutId: Int = R.layout.activity_main
