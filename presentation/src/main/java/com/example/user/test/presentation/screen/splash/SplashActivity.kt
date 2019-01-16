@@ -20,7 +20,7 @@ class SplashActivity : BaseActivity(), SplashView {
     }
 
     override val layoutId: Int = R.layout.activity_splash
-    override val navigator: Navigator = SupportAppNavigator(this, R.id.flStub)
+    override val navigator: Navigator = SupportAppNavigator(this, R.id.flSplashContainer)
 
     @Inject
     lateinit var router: Router
@@ -35,11 +35,7 @@ class SplashActivity : BaseActivity(), SplashView {
     override fun onCreate(savedInstanceState: Bundle?) {
         MarvelApplication.appComponent.inject(this)
         super.onCreate(savedInstanceState)
-    }
 
-    override fun onResume() {
-        super.onResume()
-
-        presenter.goToMainActivity()
+        presenter.onFirstCreateCalled()
     }
 }

@@ -10,8 +10,6 @@ import ru.terrakok.cicerone.Router
 
 class MarvelApplication : Application() {
 
-    private lateinit var cicerone: Cicerone<Router>
-
     companion object {
         lateinit var instance: MarvelApplication
             private set
@@ -26,13 +24,8 @@ class MarvelApplication : Application() {
     override fun onCreate() {
         super.onCreate()
 
-        cicerone = Cicerone.create()
         appComponent = DaggerAppComponent.builder()
                 .appModule(AppModule())
                 .build()
     }
-
-    fun getNavigationHolder(): NavigatorHolder = cicerone.navigatorHolder
-
-    fun getRouter(): Router = cicerone.router
 }

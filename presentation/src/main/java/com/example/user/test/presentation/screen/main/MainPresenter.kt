@@ -10,6 +10,4 @@ import javax.inject.Inject
 class MainPresenter @Inject constructor(val router: Router) : BasePresenter<MainView>() {
 
     fun onBackPressed() = router.exit()
-
-    fun setPageFragment() = router.navigateTo(Screens.PageScreen())
 }
