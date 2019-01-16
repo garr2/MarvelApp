@@ -11,14 +11,16 @@ import ru.terrakok.cicerone.Router
 class AppModule {
 
     @Provides
+    fun provideCicerone(): Cicerone<Router> = Cicerone.create()
+
+    @Provides
     fun provideRouter(cicerone: Cicerone<Router>): Router = cicerone.router
 
     @Provides
-    fun provideNavigatorHolder(cicerone: Cicerone<Router>): NavigatorHolder = cicerone.navigatorHolder
+    fun provideNavigatorHolder(cicerone: Cicerone<Router>): NavigatorHolder
+            = cicerone.navigatorHolder
 
     @Provides
-    fun provideMainFragmentPresenter(router: Router): MainFragmentPresenter = MainFragmentPresenter(router)
-
-    @Provides
-    fun provideCicerone(): Cicerone<Router> = Cicerone.create()
+    fun provideMainFragmentPresenter(router: Router): MainFragmentPresenter
+            = MainFragmentPresenter(router)
 }

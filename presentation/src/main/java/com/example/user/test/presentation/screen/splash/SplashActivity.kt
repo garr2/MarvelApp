@@ -36,6 +36,6 @@ class SplashActivity : BaseActivity(), SplashView {
         MarvelApplication.appComponent.inject(this)
         super.onCreate(savedInstanceState)
 
-        presenter.onFirstCreateCalled()
+       if (savedInstanceState == null) presenter.onFirstCreateCalled()
     }
 }
