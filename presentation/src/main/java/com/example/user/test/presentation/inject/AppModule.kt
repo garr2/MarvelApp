@@ -1,6 +1,5 @@
 package com.example.user.test.presentation.inject
 
-import com.example.user.test.presentation.screen.main.mainFragment.MainFragmentPresenter
 import dagger.Module
 import dagger.Provides
 import ru.terrakok.cicerone.Cicerone
@@ -20,7 +19,4 @@ class AppModule {
 
     @Provides
     fun provideNavigatorHolder(cicerone: Cicerone<Router>): NavigatorHolder = cicerone.navigatorHolder
-
-    @Provides
-    fun provideMainFragmentPresenter(router: Router): MainFragmentPresenter = MainFragmentPresenter(router)
 }

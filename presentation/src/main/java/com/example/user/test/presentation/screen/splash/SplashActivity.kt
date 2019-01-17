@@ -25,7 +25,6 @@ class SplashActivity : BaseActivity(), SplashView {
     @Inject
     lateinit var router: Router
 
-    @Inject
     @InjectPresenter
     lateinit var presenter: SplashPresenter
 
@@ -36,6 +35,6 @@ class SplashActivity : BaseActivity(), SplashView {
         MarvelApplication.appComponent.inject(this)
         super.onCreate(savedInstanceState)
 
-       if (savedInstanceState == null) presenter.onFirstCreateCalled()
+        if (savedInstanceState == null) presenter.onFirstCreateCalled()
     }
 }
