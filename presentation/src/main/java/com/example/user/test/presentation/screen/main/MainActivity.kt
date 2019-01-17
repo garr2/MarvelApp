@@ -37,8 +37,13 @@ class MainActivity : BaseActivity(), MainView {
         MarvelApplication.appComponent.inject(this)
         super.onCreate(savedInstanceState)
 
-        if (savedInstanceState == null) presenter.setPageFragment()
+        if (savedInstanceState == null) presenter.setMainFragment()
     }
 
-    override fun onBackPressed() = presenter.onBackPressed()
+    override fun onBackPressed() {
+        val size = supportFragmentManager.backStackEntryCount
+        if (size <= 1){
+            presenter.onBackPressed()
+        }else super.onBackPressed()
+    }
 }

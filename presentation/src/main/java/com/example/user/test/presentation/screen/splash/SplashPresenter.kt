@@ -8,7 +8,7 @@ import javax.inject.Inject
 
 @InjectViewState
 class SplashPresenter @Inject constructor(
-        private val router: Router
+    private val router: Router
 ) : BasePresenter<SplashView>() {
 
     fun onFirstCreateCalled() = router.navigateTo(Screens.MainScreen())
