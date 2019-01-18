@@ -25,4 +25,19 @@ object Screens {
         }
     }
 
+    class MainFragmentScreen : SupportAppScreen() {
+        override fun getFragment(): Fragment = MainFragment()
+    }
+
+    class CharacterScreen : SupportAppScreen() {
+        override fun getFragment(): Fragment = CharacterFragment()
+    }
+
+    class FavoriteScreen : SupportAppScreen() {
+        override fun getFragment(): Fragment = FavoriteFragment()
+    }
+
+    class ProfileScreen : SupportAppScreen() {
+        override fun getFragment(): Fragment = ProfileFragment()
+    }
 }

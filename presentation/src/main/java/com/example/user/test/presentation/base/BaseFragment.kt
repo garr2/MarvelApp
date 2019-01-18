@@ -10,6 +10,14 @@ abstract class BaseFragment : MvpAppCompatFragment() {
 
     protected abstract val layoutId: Int
 
-    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? =
-            inflater.inflate(layoutId, container, false)
+    private var rootView: View? = null
+
+    override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
+        if (rootView == null) {
+            rootView = inflater.inflate(layoutId, container, false)
+        }
+
+        return rootView
+    }
+
 }
