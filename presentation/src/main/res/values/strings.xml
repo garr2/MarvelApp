@@ -1,3 +1,7 @@
 <resources>
     <string name="app_name">Test</string>
+    <string name="characters">Characters</string>
+    <string name="favorite">Favorites</string>
+    <string name="profile">Profile</string>
+    <string name="try_again">Try again</string>
 </resources>
