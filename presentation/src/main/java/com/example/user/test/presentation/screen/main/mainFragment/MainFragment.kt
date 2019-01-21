@@ -44,6 +44,7 @@ class MainFragment : BaseFragment(), MainFragmentView {
         super.onViewCreated(view, savedInstanceState)
 
         bnvTabs.setOnNavigationItemSelectedListener(tabItemListener)
+        if (savedInstanceState == null) replaceFragment(charactersFragment)
     }
 
     private val tabItemListener = BottomNavigationView.OnNavigationItemSelectedListener {
